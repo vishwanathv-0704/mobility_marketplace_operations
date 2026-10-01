@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Operations Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Mobility Operations Dashboard</h1>
+
+    <p class="subtitle">
+        Data Validation, Anomaly Detection & Operational Insights
+    </p>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary-grid">
+
+        <div class="summary-card">
+            <h3>Drivers</h3>
+            <p>{{ summary.drivers }}</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Trips</h3>
+            <p>{{ summary.trips }}</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Zones</h3>
+            <p>{{ summary.zones }}</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Validation Errors</h3>
+            <p>{{ summary.validation_errors }}</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Anomalies</h3>
+            <p>{{ summary.anomalies }}</p>
+        </div>
+
+    </div>
+
+
+    <!-- OPERATIONAL INSIGHTS -->
+
+    <div class="card">
+
+        <h2>Operational Insights</h2>
+
+        {% if insights %}
+
+            <div class="insight-list">
+
+                {% for insight in insights %}
+
+                    <div class="insight-item">
+                        {{ loop.index }}. {{ insight }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p>No operational insights available.</p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- ANOMALY DETECTION -->
+
+    <div class="card">
+
+        <h2>Anomaly Detection</h2>
+
+        {% if anomalies %}
+
+            <p>
+                Total anomalies detected:
+                <strong>{{ anomalies|length }}</strong>
+            </p>
+
+            <div class="error-list">
+
+                {% for anomaly in anomalies[:20] %}
+
+                    <div class="error-item">
+
+                        <strong>{{ anomaly.type }}</strong>
+                        -
+                        {{ anomaly.id }}
+                        -
+                        {{ anomaly.issue }}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% if anomalies|length > 20 %}
+
+                <p>
+                    Showing first 20 anomalies out of
+                    {{ anomalies|length }}.
+                </p>
+
+            {% endif %}
+
+        {% else %}
+
+            <p class="success">
+                No anomalies detected.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- VALIDATION RESULTS -->

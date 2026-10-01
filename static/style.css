@@ -1,0 +1,267 @@
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    margin-bottom: 35px;
+    color: #667085;
+    font-size: 16px;
+}
+
+
+/* ============================================================
+   UPLOAD CARD
+   ============================================================ */
+
+.card {
+    background: white;
+    padding: 32px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    border: 1px solid #e6e9ef;
+    box-shadow: 0 8px 25px rgba(20, 30, 50, 0.06);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+
+/* ============================================================
+   FORM
+   ============================================================ */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    margin-top: 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #344054;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d0d5dd;
+    border-radius: 9px;
+    background: #fafbfc;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    border-color: #98a2b3;
+}
+
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
+button {
+    margin-top: 25px;
+    padding: 13px 22px;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 9px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   ERROR
+   ============================================================ */
+
+.error {
+    background: #fff1f2;
+    color: #b42318;
+
+    border: 1px solid #fecdca;
+
+    padding: 14px 18px;
+    margin-bottom: 20px;
+
+    border-radius: 9px;
+}
+
+
+/* ============================================================
+   SUMMARY CARDS
+   ============================================================ */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.summary-card {
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 15px;
+
+    border: 1px solid #e6e9ef;
+
+    box-shadow:
+        0 6px 18px rgba(20, 30, 50, 0.05);
+
+    transition: 0.2s;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(20, 30, 50, 0.08);
+}
+
+.summary-card h3 {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #667085;
+
+    font-weight: 600;
+}
+
+.summary-card p {
+    margin: 12px 0 0;
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #172033;
+}
+
+
+/* ============================================================
+   VALIDATION RESULTS
+   ============================================================ */
+
+.error-list {
+    margin-top: 20px;
+
+    max-height: 450px;
+
+    overflow-y: auto;
+
+    border-radius: 10px;
+}
+
+.error-item {
+    padding: 12px 15px;
+
+    margin-bottom: 8px;
+
+    background: #fff7ed;
+
+    color: #9a3412;
+
+    border-left: 4px solid #f97316;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+.success {
+    padding: 14px;
+
+    background: #ecfdf3;
+
+    color: #027a48;
+
+    border: 1px solid #abefc6;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 30px 18px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+}
